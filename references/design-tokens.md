@@ -142,3 +142,51 @@ License · 2026` + external link with `↗` glyph.
 Minimal. Fade-up on scroll (8px translate, 300ms ease-out) at most.
 No parallax, no spring physics. A blinking block cursor `▮` in terminal
 demos is the only "alive" element.
+
+## 7. The site frame (printed-plate border)
+
+The whole page sits inside a thin **double rule**, like the border of an engraved
+plate or a banknote — and key boxes (the terminal/command block especially) repeat
+the same double border. A single hairline reads as a box; a `double` rule reads as
+*print*. Keep a margin of bare parchment outside the frame so it breathes.
+
+```css
+/* a decorative frame over the whole viewport — persists while scrolling */
+.site-frame {
+  position: fixed;
+  inset: 12px;                       /* margin of paper around the frame */
+  border: 3px double var(--rule-strong);
+  pointer-events: none;
+  z-index: 60;                       /* above content, below grain/modals */
+}
+@media (max-width: 600px) { .site-frame { inset: 8px; } }
+
+/* the same treatment on a hero box / terminal */
+.terminal { border: 3px double var(--rule-strong); }
+```
+
+Use `border-style: double` at **≥3px** (thinner collapses to a single line).
+Reserve it for the page frame and one or two signature boxes — not every card,
+or it gets noisy. Ordinary cells keep the 1px hairline rule from §1.
+
+## 8. Navigation (tall, boxed, quiet-until-hover)
+
+The header is a **tall, airy band** (64–80px) bounded by hairline rules. Links are
+quiet at rest and resolve into focus on hover — ink coming up on the plate.
+
+- Links: mono **or** the display serif, **UPPERCASE**, wide tracking (~0.12–0.19em),
+  at **rest opacity ≈ 0.65**. Each link is a small **square box** — `1px solid
+  var(--rule)`, square corners, generous padding (`.5rem .9rem`).
+- **Hover animation:** fade opacity `0.65 → 1`, and shift the box — border to
+  `var(--ink)` and/or a `var(--paper-raised)` fill — over ~180ms. No movement, no
+  spring; pure `opacity` / `color` / `border-color` transitions.
+
+```css
+.nav a {
+  font-family: var(--font-mono); text-transform: uppercase;
+  letter-spacing: .16em; font-size: .72rem;
+  opacity: .65; border: 1px solid var(--rule); padding: .5rem .9rem;
+  transition: opacity .18s ease, border-color .18s ease, background .18s ease;
+}
+.nav a:hover { opacity: 1; border-color: var(--ink); background: var(--paper-raised); }
+```
