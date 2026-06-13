@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demo — Hermes Mythic Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2efe6; --paper-warm:#ece7d9; --paper-raised:#f7f5ee;
+  --ink:#16140f; --ink-soft:#4d493f; --ink-faint:#8a8576;
+  --rule:#d8d2c2; --rule-strong:#b8b19d; --accent:#b0501f;
+  --font-display:'EB Garamond',Georgia,serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-display);line-height:1.6}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--ink-faint)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+
+.hero{position:relative;isolation:isolate;border-bottom:1px solid var(--rule);
+  padding:96px 0 72px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:url('demo-bg.png') no-repeat right center/contain;
+  -webkit-mask-image:linear-gradient(to left,black 25%,transparent 80%);
+          mask-image:linear-gradient(to left,black 25%,transparent 80%);
+  opacity:.85}
+h1{font-size:clamp(2.8rem,7vw,5.2rem);font-weight:500;line-height:1.05;
+  letter-spacing:-.01em;margin:14px 0 22px;max-width:13ch}
+.lede{font-size:1.15rem;color:var(--ink-soft);max-width:54ch;margin-bottom:36px}
+
+.cmd{font-family:var(--font-mono);font-size:.88rem;background:var(--paper-raised);
+  border:1px solid var(--rule);box-shadow:4px 4px 0 var(--rule);
+  padding:.85rem 1.05rem;display:flex;justify-content:space-between;gap:18px;
+  align-items:center;max-width:620px;margin-bottom:14px}
+.cmd .copy{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--ink-faint);background:none;border:none;cursor:pointer}
+.cmd .copy:hover{color:var(--accent)}
+.stepnum{font-size:1.4rem;font-weight:600;margin-right:.5rem}
+
+.btn{display:inline-block;font-family:var(--font-mono);font-size:.78rem;
+  text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--ink);
+  color:var(--ink);background:var(--paper);padding:.7rem 1.4rem;
+  text-decoration:none;margin-top:26px}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.primary{border-color:var(--accent);color:var(--accent)}
+.btn.primary:hover{background:var(--accent);color:var(--paper)}
+
+.features{padding:72px 0;border-bottom:1px solid var(--rule)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--rule);border:1px solid var(--rule);margin-top:28px}
+.cell{background:var(--paper);padding:26px 24px}
+.cell h3{font-size:1.25rem;font-weight:600;margin-bottom:8px}
+.cell p{font-size:.95rem;color:var(--ink-soft)}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+
+footer{padding:34px 0;font-family:var(--font-mono);font-size:.72rem;
+  color:var(--ink-faint);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+footer a{color:var(--ink-soft);text-decoration:none}
+footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<svg style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;opacity:.035;mix-blend-mode:multiply;z-index:9999">
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#grain)"/>
+</svg>
+
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Open Source • MIT License</div>
+  <h1>The Tracker That Sails With You.</h1>
+  <p class="lede">Not a phone app that dies in the spray. A LoRa regatta tracker that
+  lives on every boat, reports every five seconds, and costs less than a round of beer.</p>
+
+  <div class="cmd"><span><span class="stepnum">1.</span>curl -fsSL https://example.com/install.sh | bash</span><button class="copy">Copy</button></div>
+  <div class="cmd"><span><span class="stepnum">2.</span>tracker setup</span><button class="copy">Copy</button></div>
+
+  <a class="btn primary" href="#">See It in Action</a>
+  <a class="btn" href="#">Documentation</a>
+</div></section>
+
+<section class="features"><div class="wrap">
+  <div class="eyebrow">Features</div>
+  <div class="grid">
+    <div class="cell"><h3>Lives Where You Race</h3><p>868&nbsp;MHz LoRa shore gateway — no cell coverage needed, 5–10&nbsp;s position intervals.</p></div>
+    <div class="cell"><h3>Grows the Fleet</h3><p>~€25 per boat. TTGO LoRa32 + NEO-M8N. Add hulls without adding cost.</p></div>
+    <div class="cell"><h3>Replay Everything</h3><p>Every mark rounding stored. Protest committee evidence in one click.</p></div>
+  </div>
+</div></section>
+
+<footer class="wrap">
+  <span>Regatta Tracker v0.1.0</span>
+  <span><a href="#">Print Revaluri ↗</a></span>
+  <span>MIT License · 2026</span>
+</footer>
+</body>
+</html>
