@@ -169,6 +169,19 @@ Use `border-style: double` at **≥3px** (thinner collapses to a single line).
 Reserve it for the page frame and one or two signature boxes — not every card,
 or it gets noisy. Ordinary cells keep the 1px hairline rule from §1.
 
+**Section terminators.** Close a major section with a full-width rule before the
+next begins — a 1px hairline for ordinary breaks, or the same `3px double` rule to
+"stamp" the end of the last content section before a dark footer. Leave a little
+parchment below the rule so it reads as a deliberate end, not a join.
+
+```css
+.section-end {
+  border-top: 3px double var(--rule-strong);
+  margin-top: 64px;       /* gap above the bar */
+}
+/* give the section ~28px padding-bottom so the bar sits on paper, not the footer */
+```
+
 ## 8. Navigation (tall ruled band, logo top-left)
 
 This is the signature Hermes header. It is **not** a row of pill buttons — it is a
