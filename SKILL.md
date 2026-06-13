@@ -34,9 +34,10 @@ instrument details. Two capabilities:
    - Frame the whole page in a thin **double rule** (`border-style: double`, ≥3px)
      inset from the viewport — the "printed-plate" edge — and repeat it on the
      terminal/command box. See §7 of the reference.
-   - Navigation is a **tall, airy band**; links are square boxes that are quiet at
-     rest (opacity ≈0.65) and resolve to full ink on hover via opacity/border
-     transitions — no movement. See §8 of the reference.
+   - Navigation is a **tall ruled band**: logo in the top-left cell, menu items as
+     left-clustered cells divided by vertical hairline rules (those are the
+     "boxes"), quiet at rest (opacity ≈0.55) with a pure opacity-fade hover — not a
+     row of pill buttons. See §8 of the reference.
 4. Add the SVG paper-grain overlay (snippet in the reference file).
 
 ### Turning any photo into an engraving
@@ -82,4 +83,4 @@ Always view the output image after generating and iterate on `--period` /
 - [ ] Grain overlay applied at ≤4% opacity
 - [ ] One accent color max, used in ≤3 places
 - [ ] Double-rule frame around the page (and the terminal box)
-- [ ] Nav is a tall bounded band; links quiet at rest, resolve to full ink on hover
+- [ ] Nav is a tall ruled band (logo top-left, cell-divided menu), opacity-fade hover

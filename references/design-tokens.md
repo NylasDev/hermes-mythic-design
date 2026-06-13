@@ -169,24 +169,33 @@ Use `border-style: double` at **≥3px** (thinner collapses to a single line).
 Reserve it for the page frame and one or two signature boxes — not every card,
 or it gets noisy. Ordinary cells keep the 1px hairline rule from §1.
 
-## 8. Navigation (tall, boxed, quiet-until-hover)
+## 8. Navigation (tall ruled band, logo top-left)
 
-The header is a **tall, airy band** (64–80px) bounded by hairline rules. Links are
-quiet at rest and resolve into focus on hover — ink coming up on the plate.
+This is the signature Hermes header. It is **not** a row of pill buttons — it is a
+**tall ruled band** where the logo sits in the **top-left cell** and the menu items
+are cells **clustered to its right**, each separated by a vertical hairline rule.
+Those dividers (plus the band's top/bottom rules) are the "boxes" around the items.
+Trailing icons (GitHub, Discord…) sit at the far right.
 
-- Links: mono **or** the display serif, **UPPERCASE**, wide tracking (~0.12–0.19em),
-  at **rest opacity ≈ 0.65**. Each link is a small **square box** — `1px solid
-  var(--rule)`, square corners, generous padding (`.5rem .9rem`).
-- **Hover animation:** fade opacity `0.65 → 1`, and shift the box — border to
-  `var(--ink)` and/or a `var(--paper-raised)` fill — over ~180ms. No movement, no
-  spring; pure `opacity` / `color` / `border-color` transitions.
+- **Cells fill the band height** (`align-items: stretch`, band ~64–76px) so every
+  divider reads as a full-height rule — the ruled-plate look.
+- Links: mono **or** the display serif, **UPPERCASE**, wide tracking (~0.18em),
+  quiet at **rest opacity ≈ 0.55**, left-clustered after the logo.
+- **Hover animation:** a pure **opacity fade** `0.55 → 1` (optionally a faint
+  `--paper-raised` cell fill). No movement, no box popping in — just ink coming up.
 
 ```css
+.site-header .wrap { display: flex; align-items: stretch; min-height: 66px; }
+.brand { display: flex; align-items: center; padding-right: 26px;
+         border-right: 1px solid var(--rule); }            /* first cell divider */
 .nav a {
+  display: flex; align-items: center; padding: 0 24px;
   font-family: var(--font-mono); text-transform: uppercase;
-  letter-spacing: .16em; font-size: .72rem;
-  opacity: .65; border: 1px solid var(--rule); padding: .5rem .9rem;
-  transition: opacity .18s ease, border-color .18s ease, background .18s ease;
+  letter-spacing: .18em; font-size: .78rem;
+  opacity: .55; border-right: 1px solid var(--rule);        /* cell divider */
+  transition: opacity .18s ease, background .18s ease;
 }
-.nav a:hover { opacity: 1; border-color: var(--ink); background: var(--paper-raised); }
+.nav li:last-child a { border-right: none; }
+.nav a:hover { opacity: 1; background: var(--paper-raised); }
+.nav-social { margin-left: auto; }                          /* push icons right */
 ```
